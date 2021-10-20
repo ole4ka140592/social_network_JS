@@ -1,0 +1,20 @@
+.nav {
+    grid-area: n;
+    background-color: #efefef;
+    padding: 20px;
+    font-family: 'philosopher';
+    color: lightgray;
+
+    font-size: 30px;
+
+}
+
+.item a {
+    color: #434343;
+    text-decoration: none;
+    font-family: 'philosopher',Arial,sans-serif;
+}
+
+.item a.active {
+    color: black;
+}
