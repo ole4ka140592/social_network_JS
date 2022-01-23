@@ -13,7 +13,7 @@ export const Dialogs = (props) => {
     let newMessagesBody = props.state.newMessagesBody
 
     const onClickHandler=()=> {
-        props.dispatch(sendMessageAC)
+        props.dispatch(sendMessageAC())
     }
 
     const onChangeHandler=(e)=>{
