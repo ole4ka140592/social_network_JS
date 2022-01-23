@@ -1,6 +1,7 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_POST = "UPDATE-POST";
-
+const UPDATE_NEW_MESSAGES_BODY = "UPDATE-NEW-MESSAGES-BODY";
+const SEND_MESSAGE = "SEND-MESSAGE"
 
 export let store = {
     _state: {
@@ -26,7 +27,8 @@ export let store = {
                 {id: 2, message: 'How are you?'},
                 {id: 3, message: 'Yo!'}, {id: 4, message: 'Yo!'},
                 {id: 5, message: 'Yo!'}
-            ]
+            ],
+            newMessagesBody: ""
         }
     },
 
@@ -55,7 +57,7 @@ export let store = {
     // },
 
     dispatch(action) {
-        if (action.type === "ADD-POST") {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 message: this._state.profilePage.newPostText,
@@ -65,8 +67,16 @@ export let store = {
             this._state.profilePage.posts.push(newPost)
             this._state.profilePage.newPostText = ''
             this._callSubscriber(this._state)
-        } else if (action.type === "UPDATE-POST") {
+        } else if (action.type === UPDATE_POST) {
             this._state.profilePage.newPostText = action.newText
+            this._callSubscriber(this._state)
+        } else if (action.type === UPDATE_NEW_MESSAGES_BODY) {
+            this._state.messagesPage.newMessagesBody = action.body
+            this._callSubscriber(this._state)
+        } else if (action.type === SEND_MESSAGE) {
+            let body = this._state.messagesPage.newMessagesBody
+            this._state.messagesPage.newMessagesBody = ""
+            this._state.messagesPage.messages.push();
             this._callSubscriber(this._state)
         }
     },
@@ -82,20 +92,18 @@ export let store = {
 }
 
 
-export const addPostAC = ()=> {
-
+export const addPostAC = () => {
     return {
         type: ADD_POST
     }
 }
 
-export const onPostChangeAC = (text)=> {
+export const onPostChangeAC = (text) => {
     return {
         type: UPDATE_POST,
         newText: text
     }
 }
-
 
 
 export default store
