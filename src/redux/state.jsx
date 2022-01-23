@@ -76,7 +76,7 @@ export let store = {
         } else if (action.type === SEND_MESSAGE) {
             let body = this._state.messagesPage.newMessagesBody
             this._state.messagesPage.newMessagesBody = ""
-            this._state.messagesPage.messages.push();
+            this._state.messagesPage.messages.push({id: 1, message: body},);
             this._callSubscriber(this._state)
         }
     },
@@ -104,6 +104,20 @@ export const onPostChangeAC = (text) => {
         newText: text
     }
 }
+
+export const sendMessageAC = () => {
+    return {
+        type: SEND_MESSAGE
+    }
+}
+
+export const updateNewMessageBodyAC = (body) => {
+    return {
+        type: UPDATE_NEW_MESSAGES_BODY,
+        body: body
+    }
+}
+
 
 
 export default store

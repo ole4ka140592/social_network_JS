@@ -3,12 +3,23 @@ import classes from './Dialogs.module.css'
 import {NavLink} from "react-router-dom";
 import {DialogItem} from "./DialogItem/DialogsItem";
 import {Message} from "./Message/Message";
+import {sendMessageAC, updateNewMessageBodyAC} from "../../redux/state";
 
 export const Dialogs = (props) => {
 
     let dialogsElements = props.state.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
 
     let messageElements= props.state.messages.map (m => <Message message={m.message}/>)
+    let newMessagesBody = props.state.newMessagesBody
+
+    const onClickHandler=()=> {
+        props.dispatch(sendMessageAC)
+    }
+
+    const onChangeHandler=(e)=>{
+       let body = e.target.value
+        props.dispatch(updateNewMessageBodyAC(body))
+    }
 
     return (
         <div className={classes.dialogs}>
@@ -18,7 +29,12 @@ export const Dialogs = (props) => {
             </div>
 
             <div className={classes.messages}>
-                {messageElements}
+                <div>{messageElements}</div>
+                <div><textarea placeholder="Enter your message"
+                               value={newMessagesBody}
+                               onChange={onChangeHandler}
+                /></div>
+                <div><button onClick={onClickHandler}>Send</button></div>
 
             </div>
         </div>
