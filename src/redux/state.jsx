@@ -1,3 +1,7 @@
+const ADD_POST = "ADD-POST";
+const UPDATE_POST = "UPDATE-POST";
+
+
 export let store = {
     _state: {
         profilePage: {
@@ -76,6 +80,23 @@ export let store = {
         this._callSubscriber = observer
     }
 }
+
+
+export const addPostAC = ()=> {
+
+    return {
+        type: ADD_POST
+    }
+}
+
+export const onPostChangeAC = (text)=> {
+    return {
+        type: UPDATE_POST,
+        newText: text
+    }
+}
+
+
 
 export default store
 window.store = store
