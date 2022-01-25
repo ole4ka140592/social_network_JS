@@ -29,6 +29,9 @@ export let store = {
                 {id: 5, message: 'Yo!'}
             ],
             newMessagesBody: ""
+        },
+        sidebar: {
+
         }
     },
 
