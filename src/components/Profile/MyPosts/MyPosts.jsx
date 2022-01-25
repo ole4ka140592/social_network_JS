@@ -1,7 +1,8 @@
 import React from "react";
 import classes from './MyPosts.module.css'
 import {Post} from "./Post/Post";
-import {addPostAC, onPostChangeAC} from "../../../redux/state";
+import {addPostAC, onPostChangeAC} from "../../../redux/profileReducer";
+
 
 
 
@@ -12,7 +13,6 @@ export const MyPosts = (props) => {
     let newPostElement = React.createRef()
 
     let addPost = () => {
-
         props.dispatch(addPostAC())
     }
 
@@ -20,6 +20,7 @@ export const MyPosts = (props) => {
         let text = newPostElement.current.value
         // props.updateNewPostText(text)
         props.dispatch(onPostChangeAC(text))
+
     }
 
     return (

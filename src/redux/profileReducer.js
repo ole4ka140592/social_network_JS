@@ -1,23 +1,41 @@
+export const ADD_POST = "ADD-POST";
+export const UPDATE_POST = "UPDATE-POST";
+
 export const profileReducer = (state, action) => {
 
     switch (action.type) {
-        case "ADD_POST": {
+        case ADD_POST: {
+
             let newPost = {
                 id: 5,
-                message: this._state.profilePage.newPostText,
+                message: state.newPostText,
                 like: 0
             }
 
-            state.profilePage.posts.push(newPost)
-            state.profilePage.newPostText = ''
+            state.posts.push(newPost)
+            state.newPostText = ''
             return state
 
         }
-        case "UPDATE_POST": {
-            state.profilePage.newPostText = action.newText
+        case UPDATE_POST: {
+            state.newPostText = action.newText
             return state
         }
         default:
             return state
+    }
+}
+
+
+export const addPostAC = () => {
+    return {
+        type: ADD_POST
+    }
+}
+
+export const onPostChangeAC = (text) => {
+    return {
+        type: UPDATE_POST,
+        newText: text
     }
 }

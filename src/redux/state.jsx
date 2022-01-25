@@ -2,10 +2,7 @@ import {profileReducer} from "./profileReducer";
 import {dialogsReducer} from "./dialogsReducer";
 import {sidebarReducer} from "./sidebarReducer";
 
-const ADD_POST = "ADD-POST";
-const UPDATE_POST = "UPDATE-POST";
-const UPDATE_NEW_MESSAGES_BODY = "UPDATE-NEW-MESSAGES-BODY";
-const SEND_MESSAGE = "SEND-MESSAGE"
+
 
 export let store = {
     _state: {
@@ -62,31 +59,9 @@ export let store = {
 }
 
 
-export const addPostAC = () => {
-    return {
-        type: ADD_POST
-    }
-}
 
-export const onPostChangeAC = (text) => {
-    return {
-        type: UPDATE_POST,
-        newText: text
-    }
-}
 
-export const sendMessageAC = () => {
-    return {
-        type: SEND_MESSAGE
-    }
-}
 
-export const updateNewMessageBodyAC = (body) => {
-    return {
-        type: UPDATE_NEW_MESSAGES_BODY,
-        body: body
-    }
-}
 
 
 export default store
