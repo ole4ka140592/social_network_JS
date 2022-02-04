@@ -9,6 +9,7 @@ import {Music} from "./components/Music/Music";
 import {News} from "./components/News/News";
 import {Settings} from "./components/Settings/Settings";
 import {updateNewPostText} from "./redux/state";
+import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
@@ -19,7 +20,7 @@ const App = (props) => {
             <Navbar/>
             <div className='app-wrapper-content'>
                 <Route path='/dialogs' render={() =>
-                    <Dialogs store={props.store}/>}
+                    <DialogsContainer store={props.store}/>}
                 />
                 <Route path='/profile' render={() =>
                     <Profile store={props.store}/>}
