@@ -13,25 +13,29 @@ let initialState = {
     messages: [
         {id: 1, message: 'Hi!'},
         {id: 2, message: 'How are you?'},
-        {id: 3, message: 'Yo!'}, {id: 4, message: 'Yo!'},
+        {id: 3, message: 'Yo!'},
+        {id: 4, message: 'Yo!'},
         {id: 5, message: 'Yo!'}
     ],
     newMessagesBody: ""
 }
 
-export const dialogsReducer = (state=initialState, action) => {
-
+export const dialogsReducer = (state = initialState, action) => {
+    let copyState;
     switch (action.type) {
         case UPDATE_NEW_MESSAGES_BODY: {
-            state.newMessagesBody = action.body
-            return state
+            copyState = {...state}
+            copyState.newMessagesBody = action.body
+            return copyState
         }
 
         case SEND_MESSAGE: {
-            let body = state.newMessagesBody
-            state.newMessagesBody = ""
-            state.messages.push({id: 1, message: body})
-            return state
+            copyState = {...state}
+            let body = copyState.newMessagesBody
+            copyState.newMessagesBody = ""
+            copyState.messages = [...state.messages]
+            copyState.messages.push({id: 1, message: body})
+            return copyState
         }
         default:
             return state
