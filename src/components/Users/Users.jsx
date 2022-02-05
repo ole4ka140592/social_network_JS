@@ -5,23 +5,26 @@ import photoUsers from "./../../assets/images/photoUsers.png"
 
 export const Users = (props) => {
 
-    if (props.users.length === 0) {
-
-        axios.get("https://social-network.samuraijs.com/api/1.0/users")
-            .then(response => {
-                debugger
-                props.setUsers(response.data.items)
-            })
+    let getUsers = () => {
+        if (props.users.length === 0) {
+            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+                .then(response => {
+                    debugger
+                    props.setUsers(response.data.items)
+                })
+        }
     }
 
     return (
         <div>
+            <button onClick={getUsers}>GET USERS</button>
             {props.users.map(m => {
                 return (
                     <div key={m.id}>
                         <span>
                             <div>
-                                <img className={classes.photo} src={m.photos.small !== null ? m.photos.small: photoUsers}/>
+                                <img className={classes.photo}
+                                     src={m.photos.small !== null ? m.photos.small : photoUsers}/>
                             </div>
                             <div>
                                 {m.followed
