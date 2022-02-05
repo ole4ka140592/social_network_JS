@@ -1,7 +1,29 @@
 import React from "react";
+import classes from "./Users.module.css";
 
 
 export const Users = (props) => {
+
+    if (props.users.length === 0) {
+
+        props.setUsers([{
+            id: 1,
+            photoUrl: "http://s1.iconbird.com/ico/0612/practika/w256h2561339698323user.png",
+            followed: false,
+            fullName: "Dmitry",
+            status: "I am Boss",
+            location: {city: "Minsk", country: "Belarus"}
+        },
+            {
+                id: 2,
+                photoUrl: "http://s1.iconbird.com/ico/0612/practika/w256h2561339698323user.png",
+                followed: false,
+                fullName: "Dmitry",
+                status: "I am Boss",
+                location: {city: "Minsk", country: "Belarus"}
+            }])
+    }
+
     return (
         <div>
             {props.users.map(m => {
@@ -9,10 +31,12 @@ export const Users = (props) => {
                     <div key={m.id}>
                         <span>
                             <div>
-                                <img/>
+                                <img className={classes.photo} src={m.photoUrl}/>
                             </div>
                             <div>
-                                <button>Follow</button>
+                                {m.followed
+                                    ? <button onClick={() => props.follow(m.id)}>unFollow</button>
+                                    : <button onClick={() => props.follow(m.id)}>Follow</button>}
                             </div>
                         </span>
                         <span>

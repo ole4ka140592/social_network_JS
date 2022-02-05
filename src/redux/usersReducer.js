@@ -4,21 +4,18 @@ export const SET_USERS = "SET-USERS"
 
 let initialState = {
     users: [
-        {
-            id: 1, photoUrl: "http://s1.iconbird.com/ico/0612/practika/w256h2561339698323user.png",
-            followed: false, fullName: "Dmitry", status: "I am Boss",
-            location: {city: "Minsk", country: "Belarus"}
-        }
+
     ]
 }
 
-export const usersReducer = (state = initialState, action = allAction) => {
+export const usersReducer = (state = initialState, action ) => {
 
     switch (action.type) {
         case FOLLOW: {
+            debugger
             let stateCopy = {
                 ...state,
-                users: state.map(m => m.id === action.userId ? {...m, followed: !action.followed} : m)
+                users: state.users.map(m => m.id === action.userId ? {...m, followed: true} : m)
             }
             return stateCopy
         }
@@ -26,7 +23,7 @@ export const usersReducer = (state = initialState, action = allAction) => {
         case UNFOLLOW: {
             let stateCopy = {
                 ...state,
-                users: state.map(m => m.id === action.userId ? {...m, followed: !action.followed} : m)
+                users: state.users.map(m => m.id === action.userId ? {...m, followed: false} : m)
             }
             return stateCopy
         }
@@ -44,21 +41,19 @@ export const usersReducer = (state = initialState, action = allAction) => {
     }
 }
 
-export const allAction = followAC | unFollowAC | setUsersAC
+// export const allAction = followAC | unFollowAC | setUsersAC
 
-export const followAC = (userId, followed) => {
+export const followAC = (userId) => {
     return {
         type: FOLLOW,
-        userId,
-        followed
+        userId
     }
 }
 
-export const unFollowAC = (userId, followed) => {
+export const unFollowAC = (userId) => {
     return {
         type: UNFOLLOW,
-        userId,
-        followed
+        userId
     }
 }
 
