@@ -3,24 +3,25 @@ import classes from "./Users.module.css";
 import axios from "axios";
 import photoUsers from "./../../assets/images/photoUsers.png"
 
-export const Users = (props) => {
+class Users extends React.Component {
 
-    let getUsers = () => {
-        if (props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
-                .then(response => {
-                    debugger
-                    props.setUsers(response.data.items)
-                })
-        }
+    constructor(props) {
+        super(props);
+
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+
+                this.props.setUsers(response.data.items)
+            })
     }
 
-    return (
-        <div>
-            <button onClick={getUsers}>GET USERS</button>
-            {props.users.map(m => {
-                return (
-                    <div key={m.id}>
+
+    render() {
+        return (
+            <div>
+                {this.props.users.map(m => {
+                    return (
+                        <div key={m.id}>
                         <span>
                             <div>
                                 <img className={classes.photo}
@@ -28,23 +29,26 @@ export const Users = (props) => {
                             </div>
                             <div>
                                 {m.followed
-                                    ? <button onClick={() => props.follow(m.id)}>unFollow</button>
-                                    : <button onClick={() => props.follow(m.id)}>Follow</button>}
+                                    ? <button onClick={() => this.props.follow(m.id)}>unFollow</button>
+                                    : <button onClick={() => this.props.follow(m.id)}>Follow</button>}
                             </div>
                         </span>
-                        <span>
+                            <span>
                             <span>
                                 <div>{m.name}</div>
                                 <div>{m.status}</div>
                             </span>
-                            {/*<span>*/}
-                            {/*    <div>{m.location.country}</div>*/}
-                            {/*    <div>{m.location.city}</div>*/}
-                            {/*</span>*/}
+                                {/*<span>*/}
+                                {/*    <div>{m.location.country}</div>*/}
+                                {/*    <div>{m.location.city}</div>*/}
+                                {/*</span>*/}
                         </span>
-                    </div>
-                )
-            })}
-        </div>
-    )
+                        </div>
+                    )
+                })}
+            </div>
+        )
+    }
 }
+
+export default Users

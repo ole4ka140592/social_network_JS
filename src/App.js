@@ -10,7 +10,7 @@ import {News} from "./components/News/News";
 import {Settings} from "./components/Settings/Settings";
 import {updateNewPostText} from "./redux/state";
 import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
-import {Users} from "./components/Users/Users";
+import {XXXUsers} from "./components/Users/XXXUsers";
 import {UsersContainer} from "./components/Users/UsersContainer";
 
 
