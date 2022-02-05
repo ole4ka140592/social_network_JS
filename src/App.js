@@ -10,6 +10,8 @@ import {News} from "./components/News/News";
 import {Settings} from "./components/Settings/Settings";
 import {updateNewPostText} from "./redux/state";
 import {DialogsContainer} from "./components/Dialogs/DialogsContainer";
+import {Users} from "./components/Users/Users";
+import {UsersContainer} from "./components/Users/UsersContainer";
 
 
 const App = (props) => {
@@ -24,6 +26,9 @@ const App = (props) => {
                 />
                 <Route path='/profile' render={() =>
                     <Profile store={props.store}/>}
+                />
+                <Route path='/users' render={() =>
+                   <UsersContainer/>}
                 />
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>
