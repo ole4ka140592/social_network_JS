@@ -3,8 +3,8 @@ import classes from "./Users.module.css";
 import axios from "axios";
 import photoUsers from "./../../assets/images/photoUsers.png"
 
-export const XXXUsers = (props) => {
 
+export const XXXUsers = (props) => {
     let getUsers = () => {
         if (props.users.length === 0) {
             axios.get("https://social-network.samuraijs.com/api/1.0/users")
@@ -37,10 +37,6 @@ export const XXXUsers = (props) => {
                                 <div>{m.name}</div>
                                 <div>{m.status}</div>
                             </span>
-                            {/*<span>*/}
-                            {/*    <div>{m.location.country}</div>*/}
-                            {/*    <div>{m.location.city}</div>*/}
-                            {/*</span>*/}
                         </span>
                     </div>
                 )

@@ -1,10 +1,10 @@
 import React from "react";
 import classes from "./Users.module.css";
 import axios from "axios";
-import photoUsers from "./../../assets/images/photoUsers.png"
+import photoUsers from "./../../assets/images/photoUsers.png";
+
 
 class Users extends React.Component {
-
     componentDidMount() {
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?
         page=${this.props.currentPage}&count=${this.props.pageSize}`)
@@ -23,9 +23,7 @@ class Users extends React.Component {
             })
     }
 
-
     render() {
-
         let pagesCount = Math.ceil(this.props.totalUserCount / this.props.pageSize)
         let pages = [];
         for (let i = 1; i <= pagesCount; i++ ) {
@@ -60,10 +58,6 @@ class Users extends React.Component {
                                 <div>{m.name}</div>
                                 <div>{m.status}</div>
                             </span>
-                                {/*<span>*/}
-                                {/*    <div>{m.location.country}</div>*/}
-                                {/*    <div>{m.location.city}</div>*/}
-                                {/*</span>*/}
                         </span>
                         </div>
                     )

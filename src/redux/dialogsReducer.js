@@ -1,5 +1,6 @@
 export const UPDATE_NEW_MESSAGES_BODY = "UPDATE-NEW-MESSAGES-BODY";
-export const SEND_MESSAGE = "SEND-MESSAGE"
+export const SEND_MESSAGE = "SEND-MESSAGE";
+
 
 let initialState = {
     dialogs: [

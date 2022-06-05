@@ -1,6 +1,7 @@
 export const ADD_POST = "ADD-POST";
 export const UPDATE_POST = "UPDATE-POST";
 
+
 let initialState = {
     posts: [
         {id: 1, message: 'Hi, how are you?', like: 15},

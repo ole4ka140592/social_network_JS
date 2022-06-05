@@ -16,7 +16,6 @@ import {UsersContainer} from "./components/Users/UsersContainer";
 
 const App = (props) => {
     return (
-
         <div className='app-wrapper'>
             <Header/>
             <Navbar/>
@@ -28,15 +27,13 @@ const App = (props) => {
                     <Profile store={props.store}/>}
                 />
                 <Route path='/users' render={() =>
-                   <UsersContainer/>}
+                    <UsersContainer/>}
                 />
                 <Route path='/news' render={() => <News/>}/>
                 <Route path='/music' render={() => <Music/>}/>
                 <Route path='/settings' render={() => <Settings/>}/>
             </div>
         </div>
-
-
     )
 }
 

@@ -1,8 +1,9 @@
 export const FOLLOW = "FOLLOW";
-export const UNFOLLOW = "UNFOLLOW"
-export const SET_USERS = "SET-USERS"
-export const SET_CURRENT_PAGE = "SET-CURRENT-PAGE"
-export const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT"
+export const UNFOLLOW = "UNFOLLOW";
+export const SET_USERS = "SET-USERS";
+export const SET_CURRENT_PAGE = "SET-CURRENT-PAGE";
+export const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT";
+
 
 let initialState = {
     users: [],
@@ -50,8 +51,6 @@ export const usersReducer = (state = initialState, action ) => {
             return state
     }
 }
-
-// export const allAction = followAC | unFollowAC | setUsersAC
 
 export const followAC = (userId) => {
     return {

@@ -1,18 +1,15 @@
 import React from "react";
-import classes from './MyPosts.module.css'
+import classes from "./MyPosts.module.css";
 import {Post} from "./Post/Post";
 
 
 export const MyPosts = (props) => {
-
     let postsElements = props.posts.map(p => <Post message={p.message} like={p.like}/>)
     let newPostElement = React.createRef()
-
     let addPost = () => {
         props.addPost()
     }
-
-    let onPostChange=()=> {
+    let onPostChange = () => {
         let text = newPostElement.current.value
         props.updateNewPostText(text)
     }
