@@ -4,26 +4,25 @@ import axios from "axios";
 import photoUsers from "./../../assets/images/photoUsers.png"
 
 
-class UsersCL extends React.Component {
+export class UsersCL extends React.Component {
 
-    getUsers = () => {
-        if (this.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
-                .then(response => {
-                    debugger
-                    this.setUsers(response.data.items)
-                })
-        }
+    constructor(props) {
+        super(props)
+
+        axios.get("https://social-network.samuraijs.com/api/1.0/users")
+            .then(response => {
+                this.props.setUsers(response.data.items)
+            })
     }
+
 
     render() {
 
-        return (
-            <div>
-                <button onClick={this.getUsers}>GET USERS</button>
-                {this.props.users.map(m => {
-                    return (
-                        <div key={m.id}>
+        return <div>
+            {/*<button onClick={this.getUsers}>GET USERS</button>*/}
+            {this.props.users.map(m => {
+                return (
+                    <div key={m.id}>
                         <span>
                             <div>
                                 <img className={classes.photo}
@@ -31,20 +30,19 @@ class UsersCL extends React.Component {
                             </div>
                             <div>
                                 {m.followed
-                                    ? <button onClick={() => this.follow(m.id)}>unFollow</button>
-                                    : <button onClick={() => this.follow(m.id)}>Follow</button>}
+                                    ? <button onClick={() => this.props.follow(m.id)}>unFollow</button>
+                                    : <button onClick={() => this.props.follow(m.id)}>Follow</button>}
                             </div>
                         </span>
-                            <span>
+                        <span>
                             <span>
                                 <div>{m.name}</div>
                                 <div>{m.status}</div>
                             </span>
                         </span>
-                        </div>
-                    )
-                })}
-            </div>
-        )
+                    </div>
+                )
+            })}
+        </div>
     }
 }
