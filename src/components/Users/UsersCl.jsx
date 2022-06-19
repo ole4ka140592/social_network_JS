@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./Users.module.css";
 import axios from "axios";
 import photoUsers from "./../../assets/images/photoUsers.png"
+import {Pagination} from "../../common/Pagination";
 
 
 export class UsersCL extends React.Component {
@@ -17,6 +18,7 @@ export class UsersCL extends React.Component {
     render() {
 
         return <div>
+            <Pagination/>
             {/*<button onClick={this.getUsers}>GET USERS</button>*/}
             {this.props.users.map(m => {
                 return (
