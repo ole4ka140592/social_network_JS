@@ -9,14 +9,14 @@ let initialState = {
     users: [],
     pageSize: 5,
     totalUserCount: 0,
-    currentPage: 1
+    currentPage: 2
 }
 
 export const usersReducer = (state = initialState, action ) => {
 
     switch (action.type) {
         case FOLLOW: {
-            debugger
+
             let stateCopy = {
                 ...state,
                 users: state.users.map(m => m.id === action.userId ? {...m, followed: true} : m)
