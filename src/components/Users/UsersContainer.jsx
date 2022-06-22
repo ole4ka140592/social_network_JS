@@ -13,6 +13,8 @@ let mapStateToProps = (state) => {
         totalUserCount: state.usersPage.totalUserCount,
         currentPage: state.usersPage.currentPage
     }
+    console.log( state.usersPage.pageSize)
+    console.log( state.usersPage.totalUserCount)
 }
 
 let mapDispatchToProps = (dispatch) => {
