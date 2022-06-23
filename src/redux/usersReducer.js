@@ -22,7 +22,6 @@ export const usersReducer = (state = initialState, action ) => {
             }
             return stateCopy
         }
-
         case UNFOLLOW: {
             let stateCopy = {
                 ...state,
@@ -30,22 +29,18 @@ export const usersReducer = (state = initialState, action ) => {
             }
             return stateCopy
         }
-
         case SET_USERS: {
             return {
                 ...state,
                 users: action.users
             }
         }
-
         case SET_CURRENT_PAGE: {
             return {...state, currentPage: action.currentPage}
         }
-
         case SET_TOTAL_USERS_COUNT: {
             return {...state, totalUserCount: action.count}
         }
-
         default:
             return state
     }

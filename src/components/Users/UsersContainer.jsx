@@ -1,8 +1,6 @@
-import React from "react";
 import {followAC, setCurrentPageAC, setTotalUserCountAC, setUsersAC, unFollowAC} from "../../redux/usersReducer";
 import Users from "./Users";
 import {connect} from "react-redux";
-import {Dialogs} from "../Dialogs/Dialogs";
 
 
 let mapStateToProps = (state) => {

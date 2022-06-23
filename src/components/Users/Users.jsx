@@ -33,7 +33,6 @@ class Users extends React.Component {
         }
 
         return (
-
             <div>
                 <div>123</div>
                 <div>
@@ -47,8 +46,6 @@ class Users extends React.Component {
                                 key={m.id}>{m}</span>)
                     }
                 </div>
-
-
                 {this.props.users.map(m => {
                     return (
                         <div key={m.id}>

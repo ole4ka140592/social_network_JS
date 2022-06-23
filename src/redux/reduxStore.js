@@ -7,9 +7,9 @@ import {usersReducer} from "./usersReducer";
 
 let rootReducer = combineReducers({
     profilePage : profileReducer,
+    usersPage: usersReducer,
     messagesPage: dialogsReducer,
     sidebar: sidebarReducer,
-    usersPage: usersReducer,
 })
 
-export let store = createStore(rootReducer);
+export const store = createStore(rootReducer);
