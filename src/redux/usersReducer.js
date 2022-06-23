@@ -16,7 +16,6 @@ export const usersReducer = (state = initialState, action ) => {
 
     switch (action.type) {
         case FOLLOW: {
-
             let stateCopy = {
                 ...state,
                 users: state.users.map(m => m.id === action.userId ? {...m, followed: true} : m)

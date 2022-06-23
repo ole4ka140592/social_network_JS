@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Users.module.css";
 import axios from "axios";
 import photoUsers from "./../../assets/images/photoUsers.png";
-import {Pagination} from "../../common/Pagination";
 
 
 class Users extends React.Component {
@@ -36,17 +35,18 @@ class Users extends React.Component {
         return (
 
             <div>
-
-                {
-
-                    pages.map(m =>
-                                            <span
-                        className={this.props.currentPage === m ? classes.selectedPage : ""}
-                        onClick={(e) => {
-                            this.onPageChanged(m)
-                        }}
-                        key={m.id} >{m}</span>)
-                }
+                <div>123</div>
+                <div>
+                    {
+                        pages.map(m =>
+                            <span
+                                className={this.props.currentPage === m ? classes.selectedPage : ""}
+                                onClick={(e) => {
+                                    this.onPageChanged(m)
+                                }}
+                                key={m.id}>{m}</span>)
+                    }
+                </div>
 
 
                 {this.props.users.map(m => {

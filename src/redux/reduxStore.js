@@ -9,7 +9,7 @@ let rootReducer = combineReducers({
     profilePage : profileReducer,
     messagesPage: dialogsReducer,
     sidebar: sidebarReducer,
-    usersPage: usersReducer
+    usersPage: usersReducer,
 })
 
 export let store = createStore(rootReducer);
