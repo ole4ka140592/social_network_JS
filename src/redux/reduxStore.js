@@ -13,3 +13,4 @@ let rootReducer = combineReducers({
 })
 
 export const store = createStore(rootReducer);
+window.store=store

@@ -10,8 +10,10 @@ class Users extends React.Component {
         page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.setUsers(response.data.items)
-                this.props.setTotalUserCount(response.data.totalUserCount)
+                this.props.setTotalUserCount(response.data.totalCount)
+                console.log(response.data.totalUserCount)
             })
+
     }
 
     onPageChanged = (pageNumber) => {
@@ -34,7 +36,6 @@ class Users extends React.Component {
 
         return (
             <div>
-                <div>123</div>
                 <div>
                     {
                         pages.map(m =>
