@@ -8,7 +8,7 @@ class Users extends React.Component {
 
     render() {
 
-        let pagesCount = Math.ceil(this.props.totalUserCount / this.props.pageSize)
+        let pagesCount = Math.ceil(this.props.totalCount/ this.props.pageSize)
         let pages = [];
         for (let i = 1; i <= pagesCount; i++) {
             pages.push(i)
@@ -22,7 +22,7 @@ class Users extends React.Component {
                             <span
                                 className={this.props.currentPage === m ? classes.selectedPage : ""}
                                 onClick={(e) => {
-                                    this.onPageChanged(m)
+                                    this.props.onPageChanged(m)
                                 }}
                                 key={m.id}>{m}</span>)
                     }
