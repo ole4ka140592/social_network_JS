@@ -1,14 +1,13 @@
 import React from "react";
 import classes from "./Users.module.css";
-import axios from "axios";
 import photoUsers from "./../../assets/images/photoUsers.png";
 
 
-class Users extends React.Component {
+export const Users =(props)=> {
 
-    render() {
 
-        let pagesCount = Math.ceil(this.props.totalCount/ this.props.pageSize)
+
+        let pagesCount = Math.ceil(props.totalCount/ props.pageSize)
         let pages = [];
         for (let i = 1; i <= pagesCount; i++) {
             pages.push(i)
@@ -16,18 +15,19 @@ class Users extends React.Component {
 
         return (
             <div>
+                hhh
                 <div>
                     {
                         pages.map(m =>
                             <span
-                                className={this.props.currentPage === m ? classes.selectedPage : ""}
+                                className={props.currentPage === m ? classes.selectedPage : ""}
                                 onClick={(e) => {
-                                    this.props.onPageChanged(m)
+                                    props.onPageChanged(m)
                                 }}
                                 key={m.id}>{m}</span>)
                     }
                 </div>
-                {this.props.users.map(m => {
+                {props.users.map(m => {
                     return (
                         <div key={m.id}>
                         <span>
@@ -37,8 +37,8 @@ class Users extends React.Component {
                             </div>
                             <div>
                                 {m.followed
-                                    ? <button onClick={() => this.props.follow(m.id)}>unFollow</button>
-                                    : <button onClick={() => this.props.follow(m.id)}>Follow</button>}
+                                    ? <button onClick={() => props.follow(m.id)}>unFollow</button>
+                                    : <button onClick={() => props.follow(m.id)}>Follow</button>}
                             </div>
                         </span>
                             <span>
@@ -52,7 +52,7 @@ class Users extends React.Component {
                 })}
             </div>
         )
-    }
+
 }
 
 export default Users

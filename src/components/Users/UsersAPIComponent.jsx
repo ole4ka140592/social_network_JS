@@ -1,7 +1,5 @@
 import React from "react";
-import classes from "./Users.module.css";
 import axios from "axios";
-import photoUsers from "./../../assets/images/photoUsers.png";
 import Users from "./Users";
 
 
@@ -12,7 +10,6 @@ class UsersAPIComponent extends React.Component {
             .then(response => {
                 this.props.setUsers(response.data.items)
                 this.props.setTotalUserCount(response.data.totalCount)
-                console.log(response.data.totalUserCount)
             })
 
     }
