@@ -5,8 +5,6 @@ import photoUsers from "./../../assets/images/photoUsers.png";
 
 export const Users =(props)=> {
 
-
-
         let pagesCount = Math.ceil(props.totalCount/ props.pageSize)
         let pages = [];
         for (let i = 1; i <= pagesCount; i++) {

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Users from "./Users";
-
+import preloader from "../../assets/images/preloader.gif"
 
 class UsersAPIComponent extends React.Component {
     componentDidMount() {
@@ -26,7 +26,8 @@ class UsersAPIComponent extends React.Component {
 
     render() {
         return (
-            <div>
+            <>
+                {this.props.isFetching? <img src={preloader}/>: null}
                 <Users
                     totalCount={this.props.totalCount}
                     pageSize={this.props.pageSize}
@@ -36,7 +37,7 @@ class UsersAPIComponent extends React.Component {
                     follow={this.props.follow}
                     unfollow={this.props.unfollow}
                 />
-            </div>
+            </>
         )
     }
 }
