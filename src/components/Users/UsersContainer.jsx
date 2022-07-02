@@ -1,4 +1,11 @@
-import {followAC, setCurrentPageAC, setTotalUserCountAC, setUsersAC, unFollowAC} from "../../redux/usersReducer";
+import {
+    followAC,
+    setCurrentPageAC,
+    setIsFetchingAC,
+    setTotalUserCountAC,
+    setUsersAC,
+    unFollowAC
+} from "../../redux/usersReducer";
 import {connect} from "react-redux";
 import UsersAPIComponent from "./UsersAPIComponent";
 
@@ -29,6 +36,9 @@ let mapDispatchToProps = (dispatch) => {
         },
         setTotalUserCount: (totalCount) => {
             dispatch(setTotalUserCountAC(totalCount))
+        },
+        setIsFetching: (isFetching) => {
+            dispatch(setIsFetchingAC(isFetching))
         }
     }
 }
