@@ -5,7 +5,7 @@ import photoUsers from "./../../assets/images/photoUsers.png";
 
 export const Users =(props)=> {
 
-        let pagesCount = Math.ceil(props.totalCount/ props.pageSize)
+        let pagesCount = Math.ceil(props.totalUsersCount/ props.pageSize)
         let pages = [];
         for (let i = 1; i <= pagesCount; i++) {
             pages.push(i)
@@ -20,9 +20,12 @@ export const Users =(props)=> {
                                 className={props.currentPage === m ? classes.selectedPage : ""}
                                 onClick={(e) => {
                                     props.onPageChanged(m)
+
                                 }}
                                 key={m.id}>{m}</span>)
+
                     }
+
                 </div>
                 {props.users.map(m => {
                     return (

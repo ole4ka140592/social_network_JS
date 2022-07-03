@@ -14,7 +14,7 @@ let mapStateToProps = (state) => {
     return {
         users: state.usersPage.users,
         pageSize: state.usersPage.pageSize,
-        totalCount: state.usersPage.totalCount,
+        totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
         isFetching: state.usersPage.isFetching
     }
@@ -31,8 +31,8 @@ let mapDispatchToProps = (dispatch) => {
         setUsers: (users) => {
             dispatch(setUsersAC(users))
         },
-        setCurrentPage: (currentPage) => {
-            dispatch(setCurrentPageAC(currentPage))
+        setCurrentPage: (pageNumber) => {
+            dispatch(setCurrentPageAC(pageNumber))
         },
         setTotalUserCount: (totalCount) => {
             dispatch(setTotalUserCountAC(totalCount))

@@ -19,9 +19,11 @@ class UsersAPIComponent extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.setIsFetching(true)
         this.props.setCurrentPage(pageNumber)
+        console.log(pageNumber)
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?
         page=${pageNumber}&count=${this.props.pageSize}`)
             .then(response => {
+                console.log(pageNumber)
                 this.props.setIsFetching(false)
                 this.props.setUsers(response.data.items)
             })
@@ -33,7 +35,7 @@ class UsersAPIComponent extends React.Component {
             <>
                 {this.props.isFetching? <img src={preloader}/>: null}
                 <Users
-                    totalCount={this.props.totalCount}
+                    totalUsersCount={this.props.totalUsersCount}
                     pageSize={this.props.pageSize}
                     currentPage={this.props.currentPage}
                     onPageChanged={this.onPageChanged}
