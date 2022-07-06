@@ -1,14 +1,11 @@
 import React from "react";
 import axios from "axios";
-import {
-    follow,
+import {follow,
     setCurrentPage,
     setIsFetching,
     setTotalUserCount,
     setUsers,
-    unFollow,
-
-} from "../../redux/usersReducer";
+    unFollow} from "../../redux/usersReducer";
 import {connect} from "react-redux";
 import preloader from "../../assets/images/preloader.gif"
 import Users from "./Users";
@@ -24,7 +21,6 @@ export class UsersC extends React.Component {
                 this.props.setTotalUserCount(response.data.totalCount)
                 this.props.setIsFetching(false)
             })
-
     }
 
     onPageChanged = (pageNumber) => {
@@ -67,29 +63,6 @@ let mapStateToProps = (state) => {
         isFetching: state.usersPage.isFetching
     }
 }
-
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId))
-//         },
-//         unFollow: (userId) => {
-//             dispatch(unFollowAC(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber))
-//         },
-//         setTotalUserCount: (totalCount) => {
-//             dispatch(setTotalUserCountAC(totalCount))
-//         },
-//         setIsFetching: (isFetching) => {
-//             dispatch(setIsFetchingAC(isFetching))
-//         }
-//     }
-// }
 
 export const UsersContainer= connect(mapStateToProps,
     {follow, unFollow, setUsers, setCurrentPage, setTotalUserCount, setIsFetching})(UsersC)
